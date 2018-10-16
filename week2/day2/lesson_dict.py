@@ -174,4 +174,16 @@ st = 'hello kitty {name} is {age}'
 # print('My Title Title'.rfind('t',))  # 查找字符串中指定的字符中索引位置最高的那个
 # print('My Title Title'.split(' '))  # 使用指定内容从左对字符串进行分隔并得到一个list，第二个参数表示分隔几次
 # print('My Title Title'.rsplit('i', 1))  # 使用指定内容从右开始对字符串进行分隔并得到一个list，第二个参数表示分隔几次
-print('My Title Title'.title())  # 将字符串以title的格式输出（每个单词首字母大写）
+# print('My Title Title'.title())  # 将字符串以title的格式输出（每个单词首字母大写）
+
+# 摘一些重要的字符串方法
+# 1 print(st.count('l'))
+# print(st.center(50,'#'))   #  居中
+# print(st.startswith('he')) #  判断是否以某个内容开头
+# print(st.find('t'))
+# print(st.format(name='alex',age=37))  # 格式化输出的另一种方式   待定：?:{}
+# print('My tLtle'.lower())
+# print('My tLtle'.upper())
+# print('\tMy tLtle\n'.strip())
+# print('My title title'.replace('itle','lesson',1))
+# print('My title title'.split('i',1))
