@@ -49,8 +49,9 @@ menu = {
     '山东': {},
 }
 
-current_layer = menu
-parent_layer = menu
+current_layer = menu  # 实现动态循环
+parent_layers = []  # 保存所有父级，最后一个元素永远都是父级
+
 while True:
     for k in current_layer:
         print(k)
@@ -58,12 +59,10 @@ while True:
     if len(choice) == 0:
         continue
     if choice in current_layer:
-        parent_layer = current_layer
-        current_layer = current_layer[choice]
+        parent_layers.append(current_layer)  # 在进入下一层之前，把当前层也就是下一层的父级追加到列表中，下一次loop，当用户选择b的时候就可以直接取列表的最后一个值出来
+        current_layer = current_layer[choice]  # 当前层改成子层
     elif choice == 'b':
-        current_layer = parent_layer
-
+        if parent_layers:
+            current_layer = parent_layers.pop()     # 取出列表的最后一个值，因为他是当前层的父级
     else:
         print('无此项，请重新输入。。。')
-
-
