@@ -64,3 +64,6 @@
 #     sys.stdout.write('*')
 #     # sys.stdout.flush()
 #     time.sleep(0.2)
+
+# .truncate 截断
+f = open('小重山', 'a', en)
