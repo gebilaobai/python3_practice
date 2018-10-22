@@ -114,14 +114,23 @@ a+ 可读可写 从文件顶部读取内容 从文件底部添加内容 不存�
 3、循环读f_read中的内容并写入f_write中
 4、当计数器到达需要插入的行时，通过更改line内容将更改后的line内容继续写入到f_write中
 """
-f_read = open('小重山', 'r', encoding='utf8')
-f_write = open('小重山2', 'w', encoding='utf8')
+# f_read = open('小重山', 'r', encoding='utf8')
+# f_write = open('小重山2', 'w', encoding='utf8')
+#
+# number = 0
+# for line in f_read:
+#     number += 1
+#     if number == 5:
+#         line = ''.join([line.strip(), 'NeoBY\n'])
+#     f_write.write(line)
+# f_read.close()
+# f_write.close()
 
-number = 0
-for line in f_read:
-    number += 1
-    if number == 5:
-        line = ''.join([line.strip(), 'NeoBY\n'])
-    f_write.write(line)
-f_read.close()
-f_write.close()
+
+# with 方法 操作完成之后推出with 代码块之后会自动close
+with open('log', 'r') as f:
+    pass
+# 在Python2.7后，with又支持同事对多个文件的上下文进行管理，例如：
+with open('log1', 'r') as f_read, open('log2', 'w') as f_write:
+    for line in f_read:
+        f_write.write(line)
