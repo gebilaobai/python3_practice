@@ -55,3 +55,13 @@
 
 """
 
+def f(*args):
+    print(args)
+    print(type(args))
+a = [1,2,3]
+f(*a)
+
+def f2(**kwargs):
+    print(kwargs)
+
+f2(**{'name':'baiy', 'age':12})
