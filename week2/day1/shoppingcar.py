@@ -48,10 +48,10 @@ if saving.isdigit():
             else:
                 print('您输入的编码商品不存在')
         elif choice == 'q':
-            print ('------------您已经购买如下商品---------------')
+            print('------------您已经购买如下商品---------------')
             for i in cart:
-                print (i)
-            print ("您的余额为%s元" % saving)
+                print(i)
+            print("您的余额为%s元" % saving)
             break
         else:
-            print ("请输入正确的商品编号")
+            print("请输入正确的商品编号")
