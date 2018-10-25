@@ -14,6 +14,7 @@
 
 """
 
+
 # 思路 n * n-1的阶乘
 # def fact(n):
 #     if n == 1:
@@ -21,13 +22,21 @@
 #     return n * fact(n - 1)
 
 
-# 通过循环实现阶乘
-def f(n):
-    ret = 1
-    for i in range(1,n+1):
-        ret = ret * i
-    return ret
+# # 通过循环实现阶乘
+# def f(n):
+#     ret = 1
+#     for i in range(1,n+1):
+#         ret = ret * i
+#     return ret
+#
+# print(f(5))
+# for i in range(1,5):
+#     print(i)
 
-print(f(5))
-for i in range(1,5):
-    print(i)
+# 菲波那切数列
+# 使用循环实现
+def fibo(n):
+    before = 0
+    after = 1
+    before, after = after, after + 1
+    return
