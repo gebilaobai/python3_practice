@@ -34,9 +34,13 @@
 #     print(i)
 
 # 菲波那切数列
-# 使用循环实现
+# 1 1 2 3 5 8 13 21 34 55
+# 递归实现
 def fibo(n):
-    before = 0
-    after = 1
-    before, after = after, after + 1
-    return
+    if n <= 1:
+        return n
+    return fibo(n-1) + fibo(n-2)
+
+print(fibo(8))
+
+
