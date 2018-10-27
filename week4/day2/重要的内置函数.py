@@ -16,14 +16,15 @@ True 的元素放到新列表中。
 
 str = ['a', 'b', 'c', 'd']
 
+
 def fun1(s):
     if s != 'a':
         return s
 
-ret = filter(fun1,str) # 是一个迭代器对象 <filter object at 0x00000274F11B7208>
-print(ret)
-print(list(ret)) # 将过滤器对象转换成列表 里面的值为['b', 'c', 'd']
 
+ret = filter(fun1, str)  # 是一个迭代器对象 <filter object at 0x00000274F11B7208>
+print(ret)
+print(list(ret))  # 将过滤器对象转换成列表 里面的值为['b', 'c', 'd']
 
 """
 2、map(function, iterable, ...)
@@ -38,17 +39,22 @@ map() 会根据提供的函数对指定序列做映射。
 """
 str2 = ['a', 'b', 'c', 'd']
 
+
 def fun2(s):
     return s + 'neoBy'
+
+
 ret2 = map(fun2, str2)
 print(ret2)
 print(list(ret2))
 
+
 def square(x):
     return x ** 2
-a = map(square,range(1,101))
-print(list(a))
 
+
+a = map(square, range(1, 101))
+print(list(a))
 
 """
 描述
@@ -63,6 +69,43 @@ reduce() 函数会对参数序列中元素进行累积。
     initializer -- 可选，初始参数
 返回值：
     返回函数计算结果。
+"""
+from functools import reduce
 
+
+def add1(x, y):
+    return x + y
+
+
+print(reduce(add1, range(1, 101)))
 
 """
+lambda
+匿名函数的命名规则：用lambda关键字标识，冒号（:）左侧表示函数接受的参数（a,b），冒号(:)右侧表示函数的返回值（a+b）。
+因为lambda在创建史不需要命名，所以，叫匿名函数。
+"""
+
+
+# 普通函数与匿名函数的对比：
+# 普通函数
+
+def add(a, b):
+    return a + b
+
+
+print(add(3, 4))
+
+# 匿名函数
+add2 = lambda a, b: a + b
+
+print(add2(2, 3))
+
+# 匿名函数实例1:通过reduce函数加lambda表达式实现阶乘：
+from functools import reduce
+
+print(reduce(lambda x,y:x*y,range(1,6)))
+
+# 匿名函数实例2：通过map函数加lambda表达式实现计算平方
+squares = map(lambda x : x*x,range(9))
+print(squares)
+print(list(squares))
