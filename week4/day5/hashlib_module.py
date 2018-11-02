@@ -20,3 +20,8 @@ print(m.hexdigest())  # 7e5d1b91146f60ff6b97caa60e835aab
 m2 = hashlib.md5()
 m2.update('hello worldneoby'.encode('utf8'))
 print(m2.hexdigest())  # 7e5d1b91146f60ff6b97caa60e835aab
+
+sha = hashlib.sha256()
+print(sha)
+sha.update('hello world'.encode('utf8'))
+print(sha.hexdigest())
