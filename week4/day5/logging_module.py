@@ -22,20 +22,27 @@ warning（日志级别等级CRITICAL>ERROR>WARNING>INFO>DEBUG>NOTSET）；
 import logging
 
 
-logging.debug('debug message')
-logging.info('info message')
-logging.warning('warning message')
-logging.error('error message')
-logging.critical('critical message')
+# logging.debug('debug message')
+# logging.info('info message')
+# logging.warning('warning message')
+# logging.error('error message')
+# logging.critical('critical message')
 
 # print(''.center(20,'*'))
 
-logging.basicConfig(level=logging.DEBUG,
-                    format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)',
-                    datefmt ='%a, %d %b %Y %H:%M:%s',
-                    filename='/temp/test.log',
-                    filemode='w'
-                    )
+# logging.basicConfig(level=logging.DEBUG,
+#                     format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)',
+#                     datefmt ='%a, %d %b %Y %H:%M:%s',
+#                     filename='test.log',
+#                     filemode='w'
+#                     )
+
+logging.basicConfig(filename='app.log',
+                    level=logging.DEBUG,
+                    format='%(asctime)s %(filename)s[line:%(lineno)d] %(message)s',
+                    datefmt='%Y-%m-%d',
+                    filemode='a')
+
 logging.debug('debug message')
 logging.info('info message')
 logging.warning('warning message')
