@@ -22,46 +22,43 @@ string提供的方法是完全匹配
 
 import re
 
-
-
 # ret = re.findall('w\w{2}l','hello world')
 # print(ret)
 
-#全部匹配
+# 全部匹配
 # ret = re.findall('alex','asdfasdfasdfalexadfasdfasdfasdfalex')
 # print(ret)  # ['alex', 'alex']
 
 # .通配符
-ret = re.findall('w..l','hello world') # .只能代指任意一个字符
+ret = re.findall('w..l', 'hello world')  # .只能代指任意一个字符
 print(ret)
 
 # ^尖角符
-ret = re.findall('^h...o','good hello world') # ^只对字符串的开始进行匹配
+ret = re.findall('^h...o', 'good hello world')  # ^只对字符串的开始进行匹配
 print(ret)
 
 # $ 从结尾匹配
-ret = re.findall('a..x$','asdfasdfasdfalex') # $只对字符串的结尾进行匹配
+ret = re.findall('a..x$', 'asdfasdfasdfalex')  # $只对字符串的结尾进行匹配
 print(ret)
 
 # * 重复匹配它的范围是[0,+∞]
-ret = re.findall('a.*li','fddfsalexlidfasdfasd') # *表示重复前面的多次（不区分元字符和普通字符）
+ret = re.findall('a.*li', 'fddfsalexlidfasdfasd')  # *表示重复前面的多次（不区分元字符和普通字符）
 print(ret)
-
 
 # + 重复匹配它的范围是[1,+∞]
-ret = re.findall('ab+','kjldfabbbbbbbbh') # +表示重复前面的多次（不区分元字符和普通字符）
+ret = re.findall('ab+', 'kjldfabbbbbbbbh')  # +表示重复前面的多次（不区分元字符和普通字符）
 print(ret)
 
-ret = re.findall('a+b','aaaabdfdfdfaabdfdfdfab') # +表示重复前面的多次（不区分元字符和普通字符）
+ret = re.findall('a+b', 'aaaabdfdfdfaabdfdfdfab')  # +表示重复前面的多次（不区分元字符和普通字符）
 print(ret)
 
 # ? [0,1]
-ret = re.findall('a?b','aaaabdfdfdfaabdfdfdfabbbb') # a?b 表示0~1个a
+ret = re.findall('a?b', 'aaaabdfdfdfaabdfdfdfabbbb')  # a?b 表示0~1个a
 print(ret)
 
 # {}指定重复次数进行匹配,大括号里面可以加范围
 
-ret = re.findall('a{1,3}b','babsaabsaaabsaaaab')  # 通过{}指定重复次数进行匹配
+ret = re.findall('a{1,3}b', 'babsaabsaaabsaaaab')  # 通过{}指定重复次数进行匹配
 print(ret)
 
 """
@@ -72,25 +69,24 @@ print(ret)
 """
 
 # [] 字符集
-ret = re.findall('a[c,d]x','acxvvvvadx')  #
+ret = re.findall('a[c,d]x', 'acxvvvvadx')  #
 print(ret)
 
-ret = re.findall('[a-z]','acxvvvvadx')  #
+ret = re.findall('[a-z]', 'acxvvvvadx')  #
 print(ret)
 
 # []字符集：可以取消元字符的特殊功能(\ ^ - 三个元字符例外)
-ret = re.findall('[w,*,.,]','awdx.,')
+ret = re.findall('[w,*,.,]', 'awdx.,')
 print(ret)
 
-ret = re.findall('[1-9a-zA-Z]','12tyAS')
+ret = re.findall('[1-9a-zA-Z]', '12tyAS')
 print(ret)
-ret = re.findall('[1-9，a-z，A-Z]','12tyAS')
+ret = re.findall('[1-9，a-z，A-Z]', '12tyAS')
 print(ret)
 
 # ^放在[]中表示取反
-ret = re.findall('[^t]','12tyAS')
+ret = re.findall('[^t]', '12tyAS')
 print(ret)
-
 
 """
 \ ：
@@ -105,28 +101,57 @@ print(ret)
 \W 匹配任何非字母数字字符；它相当于类[^a-zA-Z0-9]
 \b: 匹配一个特殊字符边界，也就是指单词和空格间的位置
 """
-ret = re.findall('\d','12tyAS')
+ret = re.findall('\d', '12tyAS')
 print(ret)
 
-ret = re.findall('\D','12tyAS')
+ret = re.findall('\D', '12tyAS')
 print(ret)
 
-ret = re.findall('\sasd','fak asd')
+ret = re.findall('\sasd', 'fak asd')
 print(ret)
-ret = re.findall('\Sasd','fakasd')
-print(ret)
-
-ret = re.findall('\w','fak asd')
+ret = re.findall('\Sasd', 'fakasd')
 print(ret)
 
-ret = re.findall('\W','  12tyAS  ')
+ret = re.findall('\w', 'fak asd')
 print(ret)
 
-ret = re.findall(r'I\b','hello,I am a LI$ST.')
+ret = re.findall('\W', '  12tyAS  ')
+print(ret)
+
+ret = re.findall(r'I\b', 'hello,I am a LI$ST.')
 print(ret)
 
 #######################################################################
 # 匹配出满足条件的第一个结果
-ret = re.search('sb','fjalskdjfslkdfjsblskdfjsb')
+ret = re.search('sb', 'fjalskdjfslkdfjsblskdfjsb')
 print(ret)
 print(ret.group())
+
+"""
+正则表达式的方法：
+1、findall()：所有结果都返回到一个列表里
+2、search()：返回匹配到的一个对象（object），对象可以调用.group方法拿取返回结果
+3、match()：同search只在字符串开始匹配，只返回一个对象，也可以用group方法拿取返回结果
+4、split()：例如re.split('[ab]','abcd') 先按a分割，得到''和'bcd',再对''和'bcd'分别按'b'分隔
+5、sub()：替换
+6、compile()：
+"""
+
+ret = re.match('asd', 'fhasd')
+print(ret)
+ret = re.match('asd', 'asdfhasd')
+print(ret)
+print(ret.group())
+
+ret = re.split('h', 'fhasd')
+print(ret)
+
+ret = re.split('[j,s]', 'sdjksal')
+print(ret)
+
+ret = re.sub('a..x', 'sxxxbbbb.b', 'adsfasdfalexxdhf')
+print(ret)
+
+
+obj = re.compile('\.com')
+print(obj.findall('ww.baidu.com'))
