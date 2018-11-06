@@ -127,6 +127,31 @@ ret = re.search('sb', 'fjalskdjfslkdfjsblskdfjsb')
 print(ret)
 print(ret.group())
 
+# print(re.search('a\.','agj').group())
+print(re.search('a\.','a.gj').group())
+# print(re.search('a\+','agj').group())
+print(re.search('a\+','a+gj').group())
+
+ret = re.findall("\\\\","abc\de")
+print(ret)
+
+ret = re.findall(r"\\","abc\de")
+print(ret)
+
+m = re.search('\bblow','blow')
+print(m)
+
+m = re.search(r'\bblow','blow')
+print(m)
+
+
+# () 分组
+ret = re.search('(as)+','sdjfkasas').group()
+print(ret)
+
+ret = re.search('(as)|3','3as').group()
+print(ret)
+
 """
 正则表达式的方法：
 1、findall()：所有结果都返回到一个列表里
