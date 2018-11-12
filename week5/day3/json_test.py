@@ -14,4 +14,5 @@ f = open('JSON_text','w')
 f.write(data)
 f.close()
 
-
+# 也可以使用.dump方法来实现
+data = json.dump(dic,f)
