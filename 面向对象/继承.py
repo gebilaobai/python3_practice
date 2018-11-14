@@ -29,7 +29,7 @@ class Son(Father):  # 子类、派生类
     def driver(self):
         pass
 
-    def somke(self):  # 重写
+    def somke(self):  # ★★★重写★★★
         print("I don't like smoke")
 
 
