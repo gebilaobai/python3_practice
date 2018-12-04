@@ -187,9 +187,13 @@ class Foo7:
         self.age = age
 
     def __iter__(self):
-        return [11,22,33]
+        return iter([11,22,33])
 
 li = Foo7('neoby', 18)
+# 如果类中有__iter__方法，创建的对象为可迭代对象
+# 对象.__iter__() 的返回值：迭代器
+# for循环，遇到迭代器，直接next
+# for循环，遇到可迭代对象，则先通过对象.__iter__()拿到迭代器再进行next
 # 1、执行li对象的类Foo7中的__iter__方法，并获取其返回值
 # 2、循环上一步中返回的对象
 
