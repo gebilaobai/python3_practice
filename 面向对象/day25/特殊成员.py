@@ -21,7 +21,6 @@ __iter__
 
 """
 
-
 #
 #
 # class Foo:
@@ -98,7 +97,6 @@ __iter__
 # print(r,type(r))
 
 
-
 #
 #
 # class Foo5:
@@ -117,7 +115,6 @@ __iter__
 #
 # ret = Foo5.__dict__ # 将类中的成员（可见和不可见的）都显示出来
 # print(ret)
-
 
 
 # li = [11,22,33,44]
@@ -171,6 +168,8 @@ __iter__
 """
 回顾一下切片
 """
+
+
 # li1 = []
 # for i in range(100):
 #     li1.append(i)
@@ -187,7 +186,8 @@ class Foo7:
         self.age = age
 
     def __iter__(self):
-        return iter([11,22,33])
+        return iter([11, 22, 33])
+
 
 li = Foo7('neoby', 18)
 # 如果类中有__iter__方法，创建的对象为可迭代对象
@@ -199,4 +199,3 @@ li = Foo7('neoby', 18)
 
 for i in li:
     print(i)
-
