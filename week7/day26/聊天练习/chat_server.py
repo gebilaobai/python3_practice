@@ -17,16 +17,22 @@ sk.bind(address)
 sk.listen(2)
 print('聊天服务已启动，欢迎加入')
 
-conn, addr = sk.accept()
-
 while True:
-    client_data = conn.recv(1023)
-    if str(client_data,'utf8') == 'exit':
-        break
-    print(str(client_data, 'utf8'))
-    server_response = input('>>>')
-    conn.send(bytes(server_response,'utf8'))
+    conn, addr = sk.accept()
+    print(addr)
 
-conn.close()
+    while True:
+
+        try:
+            client_data = conn.recv(1024)
+        except Exception:
+            break
+        if str(client_data,'utf8') == 'exit':
+            break
+        print(str(client_data, 'utf8'))
+        server_response = input('>>>')
+        conn.send(bytes(server_response,'utf8'))
+
+    conn.close()
 
 

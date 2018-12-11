@@ -13,10 +13,11 @@ address = ('192.168.117.190', 8888)
 
 sk.connect(address)
 print('欢迎加入隔壁老白的聊天室')
-
+nick_name = input('请输入您的昵称：')
 while True:
     inp = input('>>>')
-    sk.send(bytes(inp, 'utf8'))
+    message =  '%s:%s'%(nick_name, inp)
+    sk.send(bytes(message, 'utf8'))
     if inp == 'exit':
         break
     server_response = sk.recv(1024)
