@@ -34,6 +34,7 @@ while True:
         cmd_result = obj.stdout.read()
         result_len = len(cmd_result)
         conn.sendall(bytes(str(result_len),'utf8'))
+        conn.recv(1024) # 处理粘包现象
         conn.sendall(cmd_result)
     sk.close()
 

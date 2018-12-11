@@ -19,6 +19,7 @@ while True:
         break
     sk.send(bytes(inp, 'utf8'))
     result_len = int(str(sk.recv(1024),'utf8'))
+    sk.send('ok') # 解决粘包现象
     data = bytes()
     while len(data) != result_len:
         recv = sk.recv(1024)
